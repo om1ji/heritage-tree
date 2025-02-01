@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.url">jdbc:sqlite:heritage.db</property>
+        <property name="dialect">org.sqlite.hibernate.dialect.SQLiteDialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- SQLite-specific configuration -->
+        <property name="hibernate.connection.foreign_keys">true</property>
+        <property name="hibernate.connection.autocommit">true</property>
+
+        <!-- Names the annotated entity classes -->
+        <mapping class="ru.grouptable.entity.Person"/>
+    </session-factory>
+</hibernate-configuration> 
